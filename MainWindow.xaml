@@ -1,4 +1,4 @@
-﻿<Window x:Class="Trigonometry_WPF.MainWindow"
+﻿<Window x:Name="mw" x:Class="Trigonometry_WPF.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -7,15 +7,19 @@
         mc:Ignorable="d"
         Title="Trigonometry" Height="430" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
         <Ellipse x:Name="ellipse1" Fill="#26000000" HorizontalAlignment="Left" Height="200" Margin="100,100,0,0" Stroke="Black" VerticalAlignment="Top" Width="200" />
         <Line X1="200" Y1="80" X2="200" Y2="320" Stroke="Black" />
         <Line X1="80" Y1="200" X2="320" Y2="200" Stroke="Black" />
         <Polygon Fill="Black" Points="195, 90, 200, 80, 205, 90" />
         <Polygon Fill="Black" Points="310, 195, 320, 200, 310, 205" />
-        <Slider x:Name="sinslider" HorizontalAlignment="Left" Margin="554,292,0,0" VerticalAlignment="Top" Width="172" Maximum="1" Minimum="-1" LargeChange="0.1" SmallChange="0.05" ValueChanged="sinslider_ValueChanged"/>
-        <Slider x:Name="cosslider" HorizontalAlignment="Left" Margin="554,92,0,0" VerticalAlignment="Top" Width="172" Maximum="1" Minimum="-1" LargeChange="0.1" SmallChange="0.05" ValueChanged="cosslider_ValueChanged"/>
-        <Label Content="Cos" HorizontalAlignment="Left" Margin="554,50,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <Label Content="Sin" HorizontalAlignment="Left" Margin="554,250,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <Label x:Name="anglable" Content="Angle:" HorizontalAlignment="Left" Margin="600,180,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Slider x:Name="sinslider" HorizontalAlignment="Left" Margin="554,292,0,0" VerticalAlignment="Top" Width="172" Maximum="1" Minimum="0" LargeChange="0.1" SmallChange="0.05" ValueChanged="slider_ValueChanged" />
+        <Slider x:Name="cosslider" HorizontalAlignment="Left" Margin="554,92,0,0" VerticalAlignment="Top" Width="172" Maximum="1" Minimum="0" LargeChange="0.1" SmallChange="0.05" ValueChanged="slider_ValueChanged"/>
+        <Label x:Name="coslable" Content="Cos" HorizontalAlignment="Left" Margin="554,50,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label x:Name="sinlabel" Content="Sin" HorizontalAlignment="Left" Margin="554,250,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label x:Name="anglable" Content="Angle:" HorizontalAlignment="Left" Margin="554,170,0,0" VerticalAlignment="Top" FontSize="20" RenderTransformOrigin="0.476,0.504"/>
+        <Line x:Name="demoLine" X1="200" Y1="200" X2="300" Y2="200" Stroke="Red" StrokeThickness="3"/>
     </Grid>
 </Window>
