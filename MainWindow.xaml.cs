@@ -51,14 +51,7 @@ namespace Trigonometry_WPF
             }
             Alpha = Math.Acos(cosslider.Value);
             coslable.Content = $"Cos: {Math.Round(cosslider.Value, 2)}";
-            if (Math.Round(sinslider.Value, 2) == 0)
-            {
-                sinlabel.Content = $"Sin: {Math.Round(sinslider.Value, 2)}";
-            }
-            else
-            {
-                sinlabel.Content = $"Sin: -{Math.Round(sinslider.Value, 2)}";
-            }
+            sinlabel.Content = $"Sin: {Math.Round(sinslider.Value, 2)}";
             anglable.Content = $"Angle: {Math.Round(RadToDeg(Alpha), 2)}";
             Draw();
         }
@@ -76,7 +69,7 @@ namespace Trigonometry_WPF
         public void Update()
         {
             X = 200 + 100 * Math.Cos(Alpha);
-            Y = 200 + 100 * Math.Sin(Alpha);
+            Y = 200 - 100 * Math.Sin(Alpha);
         }
     }
 }
