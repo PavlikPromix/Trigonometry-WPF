@@ -1,3 +1,3 @@
 # Trigonometry-WPF
 C# WPF app demonstrating trigonometric functions on a circle
-![image](https://user-images.githubusercontent.com/32206769/112763652-030c1f00-900e-11eb-936b-c40c7b823976.png)
+![image](https://user-images.githubusercontent.com/32206769/112763872-f5a36480-900e-11eb-85d6-9ccd1984c2b6.png)
