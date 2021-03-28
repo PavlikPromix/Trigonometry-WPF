@@ -17,8 +17,8 @@ using System.Windows.Shapes;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace Trigonometry_WPF 
-{ 
+namespace Trigonometry_WPF
+{
     public partial class MainWindow : Window
     {
         #region Properties
@@ -51,7 +51,14 @@ namespace Trigonometry_WPF
             }
             Alpha = Math.Acos(cosslider.Value);
             coslable.Content = $"Cos: {Math.Round(cosslider.Value, 2)}";
-            sinlabel.Content = $"Sin: -{Math.Round(sinslider.Value, 2)}";
+            if (Math.Round(sinslider.Value, 2) == 0)
+            {
+                sinlabel.Content = $"Sin: {Math.Round(sinslider.Value, 2)}";
+            }
+            else
+            {
+                sinlabel.Content = $"Sin: -{Math.Round(sinslider.Value, 2)}";
+            }
             anglable.Content = $"Angle: {Math.Round(RadToDeg(Alpha), 2)}";
             Draw();
         }
