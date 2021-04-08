@@ -10,16 +10,17 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Ellipse x:Name="ellipse1" Fill="#26000000" HorizontalAlignment="Left" Height="200" Margin="100,100,0,0" Stroke="Black" VerticalAlignment="Top" Width="200" />
+        <Ellipse x:Name="ellipse1" Fill="#26000000" HorizontalAlignment="Left" Height="200" Margin="100,100,0,0" Stroke="Black" VerticalAlignment="Top" Width="200" MouseEnter="ellipse1_MouseEnter" MouseLeftButtonDown="ellipse1_MouseLeftButtonDown"/>
         <Line X1="200" Y1="80" X2="200" Y2="320" Stroke="Black" />
         <Line X1="80" Y1="200" X2="320" Y2="200" Stroke="Black" />
         <Polygon Fill="Black" Points="195, 90, 200, 80, 205, 90" />
         <Polygon Fill="Black" Points="310, 195, 320, 200, 310, 205" />
         <Slider x:Name="sinslider" HorizontalAlignment="Left" Margin="554,292,0,0" VerticalAlignment="Top" Width="172" Maximum="1" Minimum="0" LargeChange="0.1" SmallChange="0.05" ValueChanged="slider_ValueChanged" />
-        <Slider x:Name="cosslider" HorizontalAlignment="Left" Margin="554,92,0,0" VerticalAlignment="Top" Width="172" Maximum="1" Minimum="0" LargeChange="0.1" SmallChange="0.05" ValueChanged="slider_ValueChanged"/>
+        <Slider x:Name="cosslider" HorizontalAlignment="Left" Margin="554,92,0,0" VerticalAlignment="Top" Width="172" Maximum="1" LargeChange="0.1" SmallChange="0.05" ValueChanged="slider_ValueChanged"/>
         <Label x:Name="coslable" Content="Cos" HorizontalAlignment="Left" Margin="554,50,0,0" VerticalAlignment="Top" FontSize="20"/>
         <Label x:Name="sinlabel" Content="Sin" HorizontalAlignment="Left" Margin="554,250,0,0" VerticalAlignment="Top" FontSize="20"/>
         <Label x:Name="anglable" Content="Angle:" HorizontalAlignment="Left" Margin="554,170,0,0" VerticalAlignment="Top" FontSize="20" RenderTransformOrigin="0.476,0.504"/>
         <Line x:Name="demoLine" X1="200" Y1="200" X2="300" Y2="200" Stroke="Red" StrokeThickness="3"/>
+        <CheckBox x:Name="MHoldCheckBox" Content="Hold Mouse" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.059,-1.818"/>
     </Grid>
 </Window>

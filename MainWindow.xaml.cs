@@ -23,6 +23,8 @@ namespace Trigonometry_WPF
     {
         #region Properties
         public double Alpha;
+        private double d;
+        public double D { get { return d; } set { d = value; } }
         private double x;
         public double X { get { return x; } set { x = value; } }
         private double y;
@@ -50,10 +52,16 @@ namespace Trigonometry_WPF
                 }
             }
             Alpha = Math.Acos(cosslider.Value);
-            coslable.Content = $"Cos: {Math.Round(cosslider.Value, 2)}";
-            sinlabel.Content = $"Sin: {Math.Round(sinslider.Value, 2)}";
-            anglable.Content = $"Angle: {Math.Round(RadToDeg(Alpha), 2)}";
+            //coslable.Content = $"Cos: {Math.Round(cosslider.Value, 2)}";
+            //sinlabel.Content = $"Sin: {Math.Round(sinslider.Value, 2)}";
             Draw();
+        }
+        public void Sync()
+        {
+            cosslider.Value = Math.Round(Math.Cos(Alpha), 2);
+            anglable.Content = $"Angle: {Math.Round(RadToDeg(Alpha), 2)}";
+            coslable.Content = $"Cos: {Math.Round(Math.Cos(Alpha), 2)}";
+            sinlabel.Content = $"Sin: {Math.Round(Math.Sin(Alpha), 2)}";
         }
         public static double RadToDeg(double radians)
         {
@@ -62,14 +70,38 @@ namespace Trigonometry_WPF
         }
         public void Draw()
         {
+            Update();
             demoLine.X2 = X;
             demoLine.Y2 = Y;
-            Update();
+            Sync();
         }
         public void Update()
         {
             X = 200 + 100 * Math.Cos(Alpha);
             Y = 200 - 100 * Math.Sin(Alpha);
+
+        }
+        //arccos((x-200)/100)
+
+
+        private void ellipse1_MouseEnter(object sender, MouseEventArgs e)
+        {
+            if (MHoldCheckBox.IsChecked == true)
+            {
+                D = Math.Sqrt(Math.Pow((e.GetPosition(this).X - 200), 2) + Math.Pow((200 - e.GetPosition(this).Y), 2));
+                Alpha = Math.Acos((e.GetPosition(this).X - 200) / D);
+                Draw();
+            }
+        }
+
+        private void ellipse1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (MHoldCheckBox.IsChecked == false)
+            {
+                D = Math.Sqrt(Math.Pow((e.GetPosition(this).X - 200), 2) + Math.Pow((200 - e.GetPosition(this).Y), 2));
+                Alpha = Math.Acos((e.GetPosition(this).X - 200) / D);
+                Draw();
+            }
         }
     }
 }
